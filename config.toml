@@ -1,14 +1,15 @@
-baseURL = "https://example.com/"
-languageCode = "en-us"
-title = "Bodhi Theme"
+baseURL = "https://yoichi-beer.netlify.app/"
+languageCode = "ja"
+hasCJKLanguage = true
+title = "loose talk"
 theme = "bodhi"
+googleAnalytics = "UA-175438985-1"
 
 [params]
-    subtitle = "simple and minimal."
-    avatar = "/avatar.png"
-    author = "Rohan Verma"
+    subtitle = "ゆるい話"
+    avatar = "/images/lily.png"
+    author = "yoichibeer"
     commentoSrc = "https://commento.example.com/js/commento.js"
-    footerMessage = "Keep it simple."
     disableSearch = false
 
 [[menu.main]]
@@ -22,21 +23,15 @@ url = "/about/"
 weight = 1
 
 [[menu.nav]]
-name = "blogs"
-url = "/blog"
+name = "posts"
+url = "/posts"
 weight = 1
 
 [[menu.nav]]
-parent = "blogs"
+parent = "posts"
 name = "tags"
 url = "/tags"
 weight = 2
-
-[[menu.nav]]
-parent = "blogs"
-name = "categories"
-url = "/categories"
-weight = 3
 
 [markup.goldmark.renderer]
 unsafe= true
@@ -56,4 +51,9 @@ unsafe= true
 [[params.social]]
 name = "Github"
 icon = "github"
-url = "https://github.com/rhnvrm/bodhi"
+url = "https://github.com/yoichibeer"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/yoichibeer"
