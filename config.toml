@@ -6,31 +6,20 @@ theme = "bodhi"
 googleAnalytics = "UA-175438985-1"
 
 [params]
-    subtitle = "ゆるい話"
+    # subtitle = "ゆるい話"
     avatar = "/images/lily.png"
     author = "yoichibeer"
     commentoSrc = "https://commento.example.com/js/commento.js"
     disableSearch = false
 
-[[menu.main]]
-name = "home"
-url = "/"
+[[menu.main_right]]
+name = "tags"
+url = "/tags"
 weight = 1
 
 [[menu.main_right]]
 name = "about"
 url = "/about/"
-weight = 1
-
-[[menu.nav]]
-name = "posts"
-url = "/posts"
-weight = 1
-
-[[menu.nav]]
-parent = "posts"
-name = "tags"
-url = "/tags"
 weight = 2
 
 [markup.goldmark.renderer]
