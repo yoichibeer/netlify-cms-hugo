@@ -1,5 +1,5 @@
 ---
-title: "[作業メモ] Netlify でブログはじめます"
+title: "[作業ログ] Netlify でブログはじめます"
 date: 2020-08-14T08:53:40+09:00
 draft: false
 tags:
