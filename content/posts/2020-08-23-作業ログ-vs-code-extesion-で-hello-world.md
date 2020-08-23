@@ -3,8 +3,6 @@ title: "[作業ログ] VS Code Extesion で Hello World!"
 date: 2020-08-23T07:58:14.846Z
 description: MessagePack 形式のファイル を  JSON 形式で見えるようにする VS Code Extesion を作る途中の作業メモ
 ---
-PS C:\Users\y\MessagePackViewer> yo code（かきかけー）
-
 ### \- Why -
 
 [MessagePack](https://msgpack.org/ja.html) 形式のファイルを VS Code 上で json 形式にして見たいなと。まずは、やっぱり、 Hello World! でて動かす。
