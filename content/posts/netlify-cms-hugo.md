@@ -1,18 +1,20 @@
 ---
-title: "Netlify でブログはじめます"
+title: "[作業メモ] Netlify でブログはじめます"
 date: 2020-08-14T08:53:40+09:00
 draft: false
-tags: [ netlify, netlify cms, hugo ]
+tags:
+  - netlify
+  - netlify cms
+  - hugo
+description: Netlify にブログを構築した時のメモ
 ---
-# Netlify でブログはじめます
-
-## - Why -
+## \- Why -
 
 アウトプットは、ほぼ本業のプログラムだけな昨今、プログラム以外のアウトプット場所を作って、頭の整理に使おうかと。
 
----
+- - -
 
-## - How -
+## \- How -
 
 Qiita とか note とか 既存のブログサービスに乗っかるのが早いと思ったけど、制限あるみたいだし、やめ。メンテナンスコストはさげつつ独自ブログにチャレンジ。
 
@@ -32,22 +34,24 @@ Hugo の theme の選定は tag あって search できて blog かけて mobile
 あー、でも GitHub 上のファイルをデータベースの代わりってセンスいい。
 Linux はあらゆるものをファイルに抽象化して扱えるって話を t-wada さんが [28. 技術選定の審美眼(1) w/ twada | fukabori.fm](https://fukabori.fm/episode/28) で話してたけど、なんか似た話。
 
----
+- - -
 
-## - What -
+## \- What -
 
 [Add to Your Site | Netlify CMS | Open-Source Content Management System](https://www.netlifycms.org/docs/add-to-your-site/) を見ながら Netlify CMS の追加を既存の Hugo のサイトにやるんだけど、その前にまずは既存のサイトを作らなければ、ということで Hugo 本家のドキュメントである [Quick Start | Hugo](https://gohugo.io/getting-started/quick-start/) に従ってみた。
 
-----
+- - -
 
 ### 既存のサイト作る
 
 参考サイト
-- Hugo 本家のクイックスタート [Quick Start | Hugo](https://gohugo.io/getting-started/quick-start/)
-- Hugo 本家のリファレンス [Hugo Documentation | Hugo](https://gohugo.io/documentation/)
-- config.toml 編集する上で Hugo の中身の理解に助かりました [静的サイトジェネレータ「Hugo」と技術文書公開向けテーマ「Docsy」でOSSサイトを作る | さくらのナレッジ](https://knowledge.sakura.ad.jp/22908/)
+
+* Hugo 本家のクイックスタート [Quick Start | Hugo](https://gohugo.io/getting-started/quick-start/)
+* Hugo 本家のリファレンス [Hugo Documentation | Hugo](https://gohugo.io/documentation/)
+* config.toml 編集する上で Hugo の中身の理解に助かりました [静的サイトジェネレータ「Hugo」と技術文書公開向けテーマ「Docsy」でOSSサイトを作る | さくらのナレッジ](https://knowledge.sakura.ad.jp/22908/)
 
 以下、打ち込んだコマンドと応答たち。Mac で brew とか git とか入っている前提。
+
 ```sh
 $ brew install hugo
 $ hugo version
@@ -66,6 +70,7 @@ Just a few more steps and you're ready to go:
 
 Visit https://gohugo.io/ for quickstart guide and full documentation.
 ```
+
 [Quick Start | Hugo](https://gohugo.io/getting-started/) では [Ananke theme](https://themes.gohugo.io/gohugo-theme-ananke/) 使っているけど [Bodhi Theme](https://themes.gohugo.io/bodhi/) にしよう。
 
 ```sh
@@ -81,7 +86,9 @@ theme = "bodhi"
 $ hugo new posts/netlify-cms-hugo.md
 /Users/yoichi/work/netlify-cms-hugo/content/posts/netlify-cms-hugo.md created
 ```
+
 コミットしないと。
+
 ```sh
 $ touch layouts/.gitkeep data/.gitkeep resources/.gitkeep static/.gitkeep
 $ git add .
@@ -117,10 +124,13 @@ $ git commit -m "initial commit" # もっと手前に細かくコミットかも
 ```
 
 ローカルで起動して確認してみる。
+
 ```sh
 $ hugo server -D
 ```
+
 ここで -D は以下みたい。`draft: true` になっててもページ作ってくれる。
+
 ```
   -D, --buildDrafts            include content marked as draft
 ```
@@ -130,10 +140,13 @@ $ hugo server -D
 ![デフォルト起動画面](/images/netlify-cms-hugo_01.png)
 
 次に、設定ファイルを [Bodhi Theme](https://themes.gohugo.io/bodhi/) のオススメのに変えてみる。 exampleSite ディレクトリからコピー。
+
 ```sh
 $ cp themes/bodhi/exampleSite/config.toml .
 ```
+
 config.toml の設定に試行錯誤した結果、以下に。Google Analytics も設定。
+
 ```toml
 baseURL = "https://yoichi-beer.netlify.app/"
 languageCode = "ja"
@@ -186,6 +199,7 @@ url = "https://twitter.com/yoichibeer"
 ```
 
 search.js がうまく動かない。exampleSite ディレクトリ以下の search.md をコピーして動いた。
+
 ```sh
 $ cp themes/bodhi/exampleSite/content/search.md content/
 ```
@@ -194,16 +208,18 @@ about 以下は Hugo 的に _index.md を置く。 avatar 画像をうちのわ�
 
 ![少しだけカスタマイズした画面](/images/netlify-cms-hugo_02.png)
 
-----
+- - -
 
 ### Netlify CMS 入れて Netlify でホストする
 
 参考サイト
-- 既存のサイトに Netlify CMS を追加する [Add to Your Site | Netlify CMS | Open-Source Content Management System](https://www.netlifycms.org/docs/add-to-your-site/)
-- 既存の Hugo サイトに Netlify CMS を追加する [Hugo | Netlify CMS | Open-Source Content Management System](https://www.netlifycms.org/docs/hugo/)
-- Hugo 本家サイトの Netlify にホストするための記事 [Host on Netlify | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/)
+
+* 既存のサイトに Netlify CMS を追加する [Add to Your Site | Netlify CMS | Open-Source Content Management System](https://www.netlifycms.org/docs/add-to-your-site/)
+* 既存の Hugo サイトに Netlify CMS を追加する [Hugo | Netlify CMS | Open-Source Content Management System](https://www.netlifycms.org/docs/hugo/)
+* Hugo 本家サイトの Netlify にホストするための記事 [Host on Netlify | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/)
 
 static ディレクトリ以下に admin フォルダ作って index.html と
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -223,7 +239,9 @@ static ディレクトリ以下に admin フォルダ作って index.html と
 
 </html>
 ```
+
 config.yml を追加。
+
 ```yaml
 backend:
   name: git-gateway
@@ -254,6 +272,7 @@ git commit して GitHub に置く。
 $ git remote add origin https://github.com/yoichibeer/netlify-cms-hugo.git # Create a new repo on GitHub and add it to this project as a remote repository.
 git push -u origin master # Push your changes
 ```
+
 Netlify のサイトに行ってアカウント作って New site from Git ボタン押して [Netlify App](https://app.netlify.com/start) にいく。GitHub 選択して認証通す。リポジトリのリストが出てくるのでさきほど push したリポジトリを選択。
 
 Build command は `hugo` にして Publish directory は `public` にして Deploy site ボタンおす。
@@ -263,9 +282,11 @@ Build command は `hugo` にして Publish directory は `public` にして Depl
 ![エラー画面](/images/netlify-cms-hugo_03.png)
 
 上の画面の下の方の Failed リンク辿ると Deploy log が見れる。以下が問題箇所。
+
 ```
 4:42:01 PM: ERROR 2020/08/15 07:42:01 BODHI theme does not support Hugo version 0.54.0. Minimum version required is 0.70.0
 ```
+
 <details>
 <summary>Deploy log</summary>
 
@@ -362,9 +383,11 @@ Build command は `hugo` にして Publish directory は `public` にして Depl
 4:42:05 PM: Failed during stage 'building site': Build script returned non-zero exit code: 1
 4:42:05 PM: Finished processing build request in 14.93889708s
 ```
+
 </details>
 
 ググると netlify.toml 書けということで [Host on Netlify | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-netlify/) にある netlify.toml 追加してうまくいった。 push すると Netlify が自動でデプロイしてくれる。
+
 ```toml
 [build]
 publish = "public"
@@ -397,11 +420,26 @@ HUGO_VERSION = "0.74.3"
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
 ```
+
 Netlify の管理サイトの | Build & deploy | Environment | Environment variables | に HUGO_VERSION を指定しても良いみたい。
 
 Netliy CMS の /admin/ にアクセスしても認証できないし、そもそも登録者いなそう。今日はやめ。
 
-## - Retrospective -
+
+### 2020/08/23 追記
+
+Netlify の管理サイトの | Site setting | Identity | Registration | Registration preferences | で Invite only から Open にすると 
+https://yoichi-beer.netlify.app/admin/#/
+にアクセスしたときに Sign up タブが表示されて登録できる。
+
+Netlify Identify Widget はすでに admin ディレクトリ以下の index.html に入っている。
+`<script src="https://identity.netlify.com/v1/netlify-identity-widget.js">`
+
+でこの追記部分は Netlilfy CMS から書いている。画像は Ｍａｒｋｄｏｗｎ モードではなくて Rich Text モードでできそう。
+
+<<<< 2020/08/23 追記ここまで
+
+## \- Retrospective -
 
 自前でブログサイト作るの思ったより大変やった。この記事も内容盛り込みすぎた。二日くらいかかったかな。やり残したこともたくさん。 Trello に放り込んでおいて細かく記事あげよ。
 
