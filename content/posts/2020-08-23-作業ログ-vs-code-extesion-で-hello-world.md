@@ -5,7 +5,7 @@ description: MessagePack 形式のファイル を  JSON 形式で見えるよ�
 ---
 ### \- Why -
 
-[MessagePack](https://msgpack.org/ja.html) 形式のファイルを VS Code 上で json 形式にして見たいなと。まずは、やっぱり、 Hello World! でて動かす。
+[MessagePack](https://msgpack.org/ja.html) 形式のファイルを VS Code 上で json 形式にして見たいなと。まずは、やっぱり、 Hello World! を動かす。
 
 ### \- How -
 
