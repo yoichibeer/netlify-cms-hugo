@@ -425,17 +425,22 @@ Netlify の管理サイトの | Build & deploy | Environment | Environment varia
 
 Netliy CMS の /admin/ にアクセスしても認証できないし、そもそも登録者いなそう。今日はやめ。
 
+![](/images/netlify-cms-hugo_04.png)
 
 ### 2020/08/23 追記
 
 Netlify の管理サイトの | Site setting | Identity | Registration | Registration preferences | で Invite only から Open にすると 
 https://yoichi-beer.netlify.app/admin/#/
-にアクセスしたときに Sign up タブが表示されて登録できる。
+にアクセスしたときに Sign up タブが表示されて登録できる。項目埋めて singn up すると admin にログインできる！
 
-Netlify Identify Widget はすでに admin ディレクトリ以下の index.html に入っている。
+最後に、 Invite only に戻しましょ。
+
+![](/images/netlify-cms-hugo_05.png)
+
+ちなみに検索すると出てくる Netlify Identify Widget はすでに admin ディレクトリ以下の index.html にあるので特に作業必要なし。
 `<script src="https://identity.netlify.com/v1/netlify-identity-widget.js">`
 
-でこの追記部分は Netlilfy CMS から書いている。画像は Ｍａｒｋｄｏｗｎ モードではなくて Rich Text モードでできそう。
+で、この追記部分は Netlilfy CMS から書いている。画像は Ｍａｒｋｄｏｗｎ モードではなくて Rich Text モードでできる。
 
 <<<< 2020/08/23 追記ここまで
 
